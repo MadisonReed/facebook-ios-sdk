@@ -27,7 +27,8 @@
 #import "FBDynamicFrameworkLoader.h"
 #import "FBSettings+Internal.h"
 
-#import <AdSupport/AdSupport.h>
+#warning JZ Removing references to advertisingID
+//#import <AdSupport/AdSupport.h>
 #include <mach-o/dyld.h>
 #include <sys/time.h>
 
@@ -338,11 +339,12 @@ NSString *const FBPersistedAnonymousIDKey   = @"anon_id";
     
     NSString *result = nil;
     
-    Class ASIdentifierManagerClass = fbdfl_ASIdentifierManagerClass();
-    if ([ASIdentifierManagerClass class]) {
-        ASIdentifierManager *manager = [ASIdentifierManagerClass sharedManager];
-        result = [[manager advertisingIdentifier] UUIDString];
-    }
+#warning JZ Removing references to advertisingID
+//    Class ASIdentifierManagerClass = fbdfl_ASIdentifierManagerClass();
+//    if ([ASIdentifierManagerClass class]) {
+//        ASIdentifierManager *manager = [ASIdentifierManagerClass sharedManager];
+//        result = [[manager advertisingIdentifier] UUIDString];
+//    }
     
     return result;
 }
@@ -404,14 +406,15 @@ NSString *const FBPersistedAnonymousIDKey   = @"anon_id";
     static FBAdvertisingTrackingStatus status;
     
     dispatch_once(&fetchAdvertisingTrackingStatusOnce, ^{
-        status = AdvertisingTrackingUnspecified;
-        Class ASIdentifierManagerClass = fbdfl_ASIdentifierManagerClass();
-        if ([ASIdentifierManagerClass class]) {
-            ASIdentifierManager *manager = [ASIdentifierManagerClass sharedManager];
-            if (manager) {
-                status = [manager isAdvertisingTrackingEnabled] ? AdvertisingTrackingAllowed : AdvertisingTrackingDisallowed;
-            }
-        }
+#warning JZ Removing references to advertisingID    
+        status = AdvertisingTrackingDisallowed;//AdvertisingTrackingUnspecified;
+//        Class ASIdentifierManagerClass = fbdfl_ASIdentifierManagerClass();
+//        if ([ASIdentifierManagerClass class]) {
+//            ASIdentifierManager *manager = [ASIdentifierManagerClass sharedManager];
+//            if (manager) {
+//                status = [manager isAdvertisingTrackingEnabled] ? AdvertisingTrackingAllowed : AdvertisingTrackingDisallowed;
+//            }
+//        }
     });
 
     return status;

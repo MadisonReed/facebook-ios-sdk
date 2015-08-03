@@ -201,9 +201,10 @@ OSStatus fbdfl_AudioServicesCreateSystemSoundID(CFURLRef inFileURL, SystemSoundI
 OSStatus fbdfl_AudioServicesDisposeSystemSoundID(SystemSoundID inSystemSoundID);
 void fbdfl_AudioServicesPlaySystemSound(SystemSoundID inSystemSoundID);
 
-#pragma mark AdSupport Classes
+#warning JZ Removing references to advertisingID
+//#pragma mark AdSupport Classes
 
-Class fbdfl_ASIdentifierManagerClass(void);
+//Class fbdfl_ASIdentifierManagerClass(void);
 
 #pragma mark Accounts Constants
 

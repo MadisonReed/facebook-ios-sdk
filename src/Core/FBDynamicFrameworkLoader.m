@@ -380,15 +380,16 @@ void fbdfl_AudioServicesPlaySystemSound(SystemSoundID inSystemSoundID) {
 
 #pragma mark Ad Support Classes
 
-_fbdfl_load_framework_once_impl_(AdSupport)
-_fbdfl_handle_get_impl_(AdSupport)
-
-#define _fbdfl_AdSupport_get_c(SYMBOL) _fbdfl_symbol_get_c(AdSupport, SYMBOL);
-
-Class fbdfl_ASIdentifierManagerClass(void) {
-    _fbdfl_AdSupport_get_c(ASIdentifierManager);
-    return c;
-}
+#warning JZ Removing references to advertisingID
+//_fbdfl_load_framework_once_impl_(AdSupport)
+//_fbdfl_handle_get_impl_(AdSupport)
+//
+//#define _fbdfl_AdSupport_get_c(SYMBOL) _fbdfl_symbol_get_c(AdSupport, SYMBOL);
+//
+//Class fbdfl_ASIdentifierManagerClass(void) {
+//    _fbdfl_AdSupport_get_c(ASIdentifierManager);
+//    return c;
+//}
 
 #pragma mark Accounts Constants
 
